@@ -1,0 +1,13 @@
+Event ID,Event title,Link,ID,Title,Date,Type,Cooridnates
+EONET_3478,"Moffat Fire, California",https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3478,8,Wildfires,2018-04-19T10:28:00Z,Point,"[-118.08449, 36.71537]"
+EONET_3474,Mile Marker 117 Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3474,8,Wildfires,2018-04-17T00:00:00Z,Point,"[-104.673, 38.528]"
+EONET_3468,Avian Complex Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3468,8,Wildfires,2018-04-16T15:45:00Z,Point,"[-80.902, 26.01]"
+EONET_3477,"Kauai, Hawaii Flooding",https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3477,9,Floods,2018-04-14T00:00:00Z,Point,"[-159.5, 22.02]"
+EONET_3469,34 Complex Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3469,8,Wildfires,2018-04-12T16:00:00Z,Point,"[-99.4, 36.52]"
+EONET_3471,Diener Canyon Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3471,8,Wildfires,2018-04-12T16:00:00Z,Point,"[-108.136, 35.191]"
+EONET_3470,Rhea Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3470,8,Wildfires,2018-04-12T14:00:00Z,Point,"[-99.213, 35.849]"
+EONET_3472,Bluewater Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3472,8,Wildfires,2018-04-12T12:00:00Z,Point,"[-108.133, 35.25]"
+EONET_3465,"Ebro River, Spain Flood",https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3465,9,Floods,2018-04-12T00:00:00Z,Polygon,"[[[-2.84912109375, 41.37201604041778], [-2.84912109375, 42.96219666198758], [-0.44921875, 42.96219666198758], [-0.44921875, 41.37201604041778], [-2.84912109375, 41.37201604041778]]]"
+EONET_3473,Rattlesnake Fire,https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3473,8,Wildfires,2018-04-11T13:30:00Z,Point,"[-109.506, 33.656]"
+EONET_3460,"Volgogradskaya Oblast, Russia Flooding",https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3460,9,Floods,2018-04-04T00:00:00Z,Point,"[43.4306, 50.319]"
+EONET_3461,"Thrace, Greece Floods",https://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3461,9,Floods,2018-03-27T00:00:00Z,Point,"[26.5, 41.25]"
