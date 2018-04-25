@@ -16,14 +16,18 @@ import getpass
 
 
 class Scrapper:
-        def __init__(self, url, dbPassword):                                                    #Initialize connections to the URL and Database
+        def __init__(self, url, dbUser, dbTable, dbPassword, dbHost, dbDatabase):               #Initialize connections to the URL and Database
                 self.url = url
+                self.dbUser = dbUser
+                self.dbTable = dbTable
                 self.dbPassword = dbPassword
+                self.dbHost = dbHost
+                self.dbDatabase = dbDatabase
                 self.response = requests.get(self.url)
                 self.data = self.response.text
                 self.parsed = json.loads(self.data)                                             #Buffered JSON data
                 #ENTER/CHANGE THE DATABASE USERNAME AND HOST HERE  
-                self.connection = mysql.connector.connect(user = "root", password = self.dbPassword, host = "127.0.0.1")
+                self.connection = mysql.connector.connect(user = self.dbUser, password = self.dbPassword, host = dbHost)
                 self.cursor = self.connection.cursor()                                          #Initialize CURSOR for Database operations with Python
                 #print(self.parsed)
 
@@ -55,8 +59,8 @@ class Scrapper:
                                                 csv_out.writerow(dictEventFields)               #Writing data to the CSV 
                                                 strEventFields = str(dictEventFields)
                                                 SQL = ("""                                      
-                                                        INSERT INTO `sys`.`events`
-                                                        (`event_id`,
+                                                        INSERT INTO """ + self.dbDatabase + "." + self.dbTable +
+                                                       """ (`event_id`,
                                                         `event_title`,
                                                         `link`,
                                                         `id`,
@@ -68,7 +72,7 @@ class Scrapper:
                                                         strEventFields +
                                                        " ; "
                                                         )                                       #Creating dynamic SQL statements to inject directly to Database from Python
-                                                
+                                                #print (SQL)
                                                 try:
                                                        self.cursor.execute(SQL)                 #Execute the SQL statement
                                                        self.cursor.fetchwarnings()
@@ -128,10 +132,14 @@ class Scrapper:
 
                                         ############# END OF CLASS SCRAPPER #############                
 
-                
-dbPassword = getpass.getpass(prompt = 'Please Enter Database Password Before Proceding: ', stream = None)                                
+
+dbUser = input ('Please Enter the Username of Your Database:    ')
+dbPassword = getpass.getpass(prompt = 'Please Enter Database Password Before Proceding: ', stream = None)
+dbHost = input ('Please Enter Your Host of Database:    ')
+dbDatabase = input ('Please Enter the Name of your Database:   ')
+dbTable = input ('Please Enter the Name of Your Database Table:    ')
 question = input ('Would You Like to Send an E-mail As Well Today? ')                           #Keeping an option to send the E-mail
-p = Scrapper("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events", dbPassword)                     #Feeding the URL here, can be made dynamic for code reusability
+p = Scrapper("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events", dbUser, dbTable, dbPassword, dbHost, dbDatabase)     #Feeding the URL here, can be made dynamic for code reusability
 if (question == "Y" or question == "y"):
         emailFrom = input('Please Enter Your GMail E-Mail Address:  ')
         password = getpass.getpass(prompt = 'Password: ', stream = None)                        #Password protection method
